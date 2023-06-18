@@ -100,3 +100,46 @@ public class CartController {
         layout.setAlignment(Pos.CENTER_LEFT);
 
         FileInputStream input = new FileInputStream("C:\\Users\\Admin\\eclipse-workspace\\sample\\src\\main\\resources\\"+cartEntry.getProduct().getImageFile());
+        Image image = new Image(input);
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(50);
+        imageView.setFitWidth(50);
+
+        Label productName = new Label(cartEntry.getProduct().name());
+        productName.setPrefWidth(150);
+        productName.setStyle("-fx-font-size:13pt; -fx-padding:15px");
+
+        Label quantity = new Label(String.valueOf(cartEntry.getQuantity()));
+        quantity.setStyle("-fx-padding:8px;");
+
+        Button plusButton = new Button("+");
+        plusButton.setStyle("-fx-padding:8px;");
+        plusButton.setUserData(cartEntry.getProduct().name());
+        plusButton.setOnAction(e ->{
+            String name =(String) ((Node) e.getSource()).getUserData();
+            ShoppingCart.getInstance().addProducts(name);
+            quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
+            this.totalPriceLabel.setText(String.valueOf(ShoppingCart.getInstance().calculateTotal()));
+        });
+
+        Button minusButton = new Button("-");
+        minusButton.setStyle("-fx-padding:8px;");
+        minusButton.setUserData(cartEntry.getProduct().name());
+        minusButton.setOnAction(e -> {
+            String name = (String) ((Node) e.getSource()).getUserData();
+            ShoppingCart.getInstance().removeProduct(name);
+            quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
+            this.totalPriceLabel.setText(String.valueOf(ShoppingCart.getInstance().calculateTotal()));
+        });
+
+
+        Label price = new Label(String.valueOf("€"+cartEntry.getProduct().getPrice()));
+        price.setStyle("-fx-padding:8px;");
+
+        layout.getChildren().addAll(imageView, productName,plusButton,quantity,minusButton,price);
+
+
+        return layout;
+    }
+
+}
