@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sample.Controller.Controller">
+    <left>
+        <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #e94545;" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" layoutX="7.0" layoutY="104.0" prefHeight="18.0" prefWidth="224.0" text="Pluto" textFill="#fffcfc">
+                    <font>
+                        <Font name="Verdana Bold" size="24.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Label>
+                <Label alignment="CENTER" layoutX="7.0" layoutY="156.0" prefHeight="18.0" prefWidth="224.0" text="Planet Nine" textFill="#fffcfc">
+                    <font>
+                        <Font name="Arial" size="22.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Label>
+                <Line endX="100.0" layoutX="116.0" layoutY="146.0" startX="-100.0" stroke="#f7f5f5" strokeWidth="5.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Line>
+                <Circle fill="TRANSPARENT" layoutX="116.0" layoutY="156.0" radius="103.0" stroke="#7373732b" strokeType="INSIDE" />
+                <Circle fill="#f9fbfc" layoutX="60.0" layoutY="70.0" radius="17.0" stroke="#a4a1a1" strokeType="INSIDE">
+                    <effect>
+                        <InnerShadow />
+                    </effect>
+                </Circle>
+                <Label alignment="CENTER" layoutX="7.0" layoutY="359.0" prefHeight="18.0" prefWidth="224.0" text=" Copyright (c) 2023. All Rights Reserved." textFill="#fffcfc">
+                    <font>
+                        <Font name="System Bold" size="10.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Label>
+            </children></AnchorPane>
+    </left>
+    <right>
+        <AnchorPane prefHeight="407.0" prefWidth="332.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="26.0" prefWidth="290.0" text="Secure Login">
+                    <font>
+                        <Font name="Arial" size="14.0" />
+                    </font>
+                    <effect>
+                        <InnerShadow />
+                    </effect>
+                </Label>
+                <Label layoutX="25.0" layoutY="100.0" prefHeight="23.0" prefWidth="74.0" text="Username">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="25.0" layoutY="155.0" prefHeight="23.0" prefWidth="74.0" text="Password">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="UsernameTextField" layoutX="91.0" layoutY="99.0" prefHeight="26.0" prefWidth="172.0" promptText="Username" />
+                <PasswordField fx:id="passwordPasswordField" layoutX="89.0" layoutY="154.0" prefHeight="26.0" prefWidth="175.0" promptText="Password" />
+                <Button fx:id="loginButton" layoutX="36.0" layoutY="219.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: #e94545;" text="Login" textFill="WHITE" />
+                <Button fx:id="cancelButton" layoutX="36.0" layoutY="261.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: #e94545;" text="Cancel" textFill="WHITE" />
+            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="14.0" layoutY="61.0" prefHeight="18.0" prefWidth="266.0" textFill="#e94545" />
+            <Label alignment="CENTER" layoutX="66.0" layoutY="309.0" prefHeight="18.0" prefWidth="162.0" text="Don't have an account?" textFill="#002fff" />
+            <Button fx:id="registerButton" layoutX="33.0" layoutY="349.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="26.0" prefWidth="246.0" style="-fx-background-color: #e94545;" text="Register" textFill="WHITE" />
+            </children></AnchorPane>
+    </right>
+</BorderPane>
